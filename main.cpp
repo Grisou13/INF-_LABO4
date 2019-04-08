@@ -1,6 +1,7 @@
 #include <cstdlib>
 #include <list>
 #include <vector>
+#include <iostream>
 #include "collection_g.h"
 #include "exceptions.h"
 #include "produit.h"
