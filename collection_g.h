@@ -68,5 +68,4 @@ void Collection<T,U>::parcourir(Predicat p){
 
 template <> Collection<char, std::vector>
 
-
 #endif
