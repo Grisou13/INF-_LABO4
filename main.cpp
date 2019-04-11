@@ -8,6 +8,13 @@
 
 using namespace std;
 
+class Parcour{
+   public:
+   void operator() (Produit& elem){
+      elem.setPrix(elem.getPrix() * 1.1);
+   }
+};
+
 int main() {
 
    {
@@ -80,7 +87,7 @@ int main() {
             //< à compléter 1 >
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir(/*< à compléter 2 >*/);
+            c.parcourir(Parcour());
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
