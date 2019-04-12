@@ -22,7 +22,7 @@ std::ostream& operator<< (std::ostream& out, const Collection<T, CONTENEUR>& p){
 /**
  * 
  * Utilisable seulement par des conteneur implémentant std::allocator
- * TODO: Utilisation avec array et tab[] ?
+ * 
  */
 template<typename T, template <class, class = std::allocator<T>> class CONTENEUR >
 class Collection{
@@ -62,14 +62,8 @@ T& Collection<T,CONTENEUR>::get(size_t indice){
       throw IndiceNonValide("n doit etre strictement plus petit que collection.size()");
    }
    auto i = data.begin();
-   for(size_t x = 0; x < indice; ++x, ++i);
+   for(size_t x = 0; x < indice; ++x, ++i); //augmente i jusqu'à indice
    return *i;
-   // for(size_t i = 0; i < _taille; ++i){
-   //    if( i == indice)
-   //       return data[i];
-   // }
-
-   //return *(data.begin()+indice);
 }
 
 template<typename T, template <class, class = std::allocator<T>> class CONTENEUR >
