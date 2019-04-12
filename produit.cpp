@@ -26,7 +26,7 @@ using namespace std;
 Produit::Produit(unsigned id, const string& libelle, double prix)
 try : id(id), libelle(libelle) {
    setPrix(prix);
-}catch(...){
+}catch(const PrixNonValide& e){
    throw PrixNonValide("Erreur dans Produit::Produit : \n"
                        "le prix doit etre >= 5 cts !");
 }
