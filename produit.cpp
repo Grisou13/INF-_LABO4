@@ -7,7 +7,9 @@
 
  But         : Implementation de la classe produit
 
- Remarque(s) : -
+ Remarque(s) : Nous partons du principe que l'id est un identificateur 
+               unique d'un produit. Nous utilisons ce dernier pour determiner 
+               la différence entre deux produit.
 
  Compilateur : MinGW-g++ 6.3.0
                gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
@@ -48,8 +50,7 @@ ostream& operator<<(ostream& out, const Produit& p) {
                << ")";
 }
 
-// on part du principe que l'id est un identificateur unique comme dans une
-// base de données donc si les deux on le même id il s'agit du même objet
+
 bool operator==(const Produit& lhs, const Produit& rhs) {
    return lhs.id == rhs.id;
 }
