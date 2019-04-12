@@ -10,7 +10,7 @@ friend bool operator==(const Produit& lhs, const Produit& rhs);
 public:
    Produit(unsigned id, const std::string& libelle, double prix);
    void setPrix(double prix);
-
+   double getPrix() const;
 private:
    unsigned id;
    std::string libelle;

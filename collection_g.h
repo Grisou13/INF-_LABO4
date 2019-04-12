@@ -59,7 +59,8 @@ void Collection<T, CONTENEUR>::ajouter(T elem){
 template<typename T, template <class, class = std::allocator<T>> class CONTENEUR >
 T& Collection<T,CONTENEUR>::get(size_t indice){
    if(indice >= _taille){
-      throw IndiceNonValide("n doit etre strictement plus petit que collection.size()");
+      throw IndiceNonValide("Erreur dans Collection::get : \n"
+                           "n doit etre strictement plus petit que collection.size()");
    }
    auto i = data.begin();
    for(size_t x = 0; x < indice; ++x, ++i); //augmente i jusqu'à indice

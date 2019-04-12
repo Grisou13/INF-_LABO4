@@ -112,7 +112,7 @@ int main() {
 // Erreur dans Collection::get : 
 // n doit etre strictement plus petit que collection.size()
 // ------------------------------------------------------------
-// 
+
 // ------------------------------------------------------------
 // Test sur Produit :
 // (1, "p", 0.05)
@@ -121,7 +121,7 @@ int main() {
 // Erreur dans Produit::setPrix : 
 // le prix doit etre >= 5 cts !
 // ------------------------------------------------------------
-// 
+
 // ------------------------------------------------------------
 // Test sur Collection<Produit, list> :
 // [(1, "Produit 1", 1.55), (2, "Produit 2", 5.00)] (taille = 2)

@@ -1,25 +1,35 @@
-#include <iostream>
 #include "produit.h"
-#include <iomanip>
 #include "exceptions.h"
+#include <iostream>
+#include <string>
+#include <iomanip>
 
-Produit::Produit(unsigned id, const std::string& libelle, double prix) : id(id), libelle(libelle) {
+using namespace std;
+
+Produit::Produit(unsigned id, const string& libelle, double prix)
+try : id(id), libelle(libelle) {
    setPrix(prix);
+}catch(...){
+   throw PrixNonValide("Erreur dans Produit::Produit : \n"
+                       "le prix doit etre >= 5 cts !");
 }
 
 void Produit::setPrix(double prix) {
    if (prix < 0.05) {
-      throw PrixNonValide("le prix doit etre >= 5 cts !");
+      throw PrixNonValide("Erreur dans Produit::setPrix : \n"
+                          "le prix doit etre >= 5 cts !");
    }
 
    this->prix = prix;
 }
-
-std::ostream& operator<<(std::ostream& out, const Produit& p) {
+double Produit::getPrix() const{
+   return prix;
+}
+ostream& operator<<(ostream& out, const Produit& p) {
    return out  << "("
                << p.id
                << ", \"" << p.libelle << "\""
-               << ", " << std::fixed << std::setprecision(2) << p.prix
+               << ", " << fixed << setprecision(2) << p.prix
                << ")";
 }
 
