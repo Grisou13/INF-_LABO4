@@ -1,3 +1,20 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : main.cpp
+ Auteur(s)   : Fabio Marques, Thomas Ricci, Vitor Vaz Afonso
+ Date        : 08.04.2019
+
+ But         : Test des differentes fonctionnalités et exceptions des classes
+               Collection et Produit
+
+ Remarque(s) : La fonction de test main nous a été fournie par le Laboratoire
+
+ Compilateur : MinGW-g++ 6.3.0
+               gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+ -----------------------------------------------------------------------------------
+*/
+
 #include <cstdlib>
 #include <list>
 #include <vector>
@@ -7,13 +24,6 @@
 #include "produit.h"
 
 using namespace std;
-
-class Parcour{
-   public:
-   void operator() (Produit& elem){
-      elem.setPrix(elem.getPrix() * 1.1);
-   }
-};
 
 int main() {
 
@@ -83,11 +93,17 @@ int main() {
               << c.contient(p1) << endl
               << c.contient(p2) << endl
               << noboolalpha;
-         {  
+         {
             //< à compléter 1 >
+            class AugmentationPrix{
+            public:
+               void operator() (Produit& elem){
+                  elem.setPrix(elem.getPrix() * 1.1);
+               }
+            };
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir(Parcour());
+            c.parcourir(AugmentationPrix()/*< à compléter 2 >*/);
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();

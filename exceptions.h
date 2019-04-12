@@ -1,8 +1,24 @@
-#include <stdexcept>
-#include <string>
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : exceptions.h
+ Auteur(s)   : Fabio Marques, Thomas Ricci, Vitor Vaz Afonso
+ Date        : 08.04.2019
+
+ But         : Definition des exceptions personaliése
+
+ Remarque(s) : -
+
+ Compilateur : MinGW-g++ 6.3.0
+               gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+ -----------------------------------------------------------------------------------
+*/
 
 #ifndef EXCEPTION_H
 #define EXCEPTION_H
+
+#include <stdexcept>
+#include <string>
 
 class IndiceNonValide: public std::out_of_range {
 public :

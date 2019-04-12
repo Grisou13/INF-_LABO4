@@ -1,8 +1,24 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : collection_g.h
+ Auteur(s)   : Fabio Marques, Thomas Ricci, Vitor Vaz Afonso
+ Date        : 08.04.2019
+
+ But         : Definition et implémentation de la classe Collection
+
+ Remarque(s) : -
+
+ Compilateur : MinGW-g++ 6.3.0
+               gcc (Ubuntu 5.4.0-6ubuntu1~16.04.11) 5.4.0 20160609
+ -----------------------------------------------------------------------------------
+*/
+#ifndef COLLECTION_G_H
+#define COLLECTION_G_H
+
 #include <iostream>
 #include "exceptions.h"
 #include "produit.h"
-#ifndef COLLECTION_G_H
-#define COLLECTION_G_H
 
 template<typename T, template <class, class = std::allocator<T>> class CONTENEUR >
 class Collection;
@@ -28,7 +44,6 @@ template<typename T, template <class, class = std::allocator<T>> class CONTENEUR
 class Collection{
    public:
       Collection();
-      ~Collection() = default;
       T& get(size_t indice);
       void ajouter(T elem);
       size_t taille();
@@ -96,6 +111,4 @@ void Collection<T,CONTENEUR>::vider(){
    _taille = 0;
 }
 
-// template <> Collection<char, std::vector>;
-// template <> Collection<Produit, std::list>;
 #endif
