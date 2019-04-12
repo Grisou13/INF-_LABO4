@@ -34,5 +34,5 @@ ostream& operator<<(ostream& out, const Produit& p) {
 }
 
 bool operator==(const Produit& lhs, const Produit& rhs) {
-   return lhs.id == rhs.id && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
+   return lhs.id == rhs.id;
 }
