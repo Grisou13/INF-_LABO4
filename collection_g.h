@@ -31,11 +31,11 @@ template<
 	typename T, 
 	template <class, class = std::allocator<T>> class CONTENEUR 
 >
-std::ostream& operator<< (std::ostream& out, const Collection<T, CONTENEUR>& p){
+std::ostream& operator<< (std::ostream& out, const Collection<T, CONTENEUR>& c){
 	out << "[";
-	for(auto i = p.data.begin(); i != p.data.end(); ++i){
+	for(auto i = c.data.begin(); i != c.data.end(); ++i){
 		out << *i;
-		if(distance(i, p.data.end()) > 1)
+		if(distance(i, c.data.end()) > 1)
 			out << ", ";
 	}
 	out << "]";
@@ -44,8 +44,12 @@ std::ostream& operator<< (std::ostream& out, const Collection<T, CONTENEUR>& p){
 
 /**
  * 
- * Utilisable seulement par des conteneur implémentant std::allocator
- * 
+ * Utilisable seulement par des conteneur implémentant:
+ * - les fonctions:
+ *   - push_back
+ *   - clear
+ *   - begin
+ *   - end
  */
 template<	
 	typename T, 
@@ -59,7 +63,7 @@ public:
 	size_t taille();
 	bool contient(const T& elem);
 	void vider();
-	template <typename Predicat> void parcourir(Predicat p);
+	template <typename Fn> void parcourir(Fn p);
 	friend std::ostream& operator<< <>(
 		std::ostream& out, const Collection<T, CONTENEUR>& p);
 private:
