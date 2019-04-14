@@ -95,21 +95,20 @@ int main() {
               << noboolalpha;
          {
             //< à compléter 1 >
-            class AugmentationPrix{
+            class ModificationPrix{
             public:
-               AugmentationPrix(double majoration) : majoration(majoration){}
+               ModificationPrix(double pourcentage) : pourcentage(pourcentage){}
                void operator() (Produit& elem){
-                  elem.setPrix(elem.getPrix() * majoration);
+                  elem.setPrix(elem.getPrix() * pourcentage);
                }
             private:
-               double majoration;
+               // pourcentage a appliquer sur le prix
+               double pourcentage;
             };
-            
-            AugmentationPrix nouveauPrix(1.1);
             
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir(nouveauPrix/*< à compléter 2 >*/);
+            c.parcourir(ModificationPrix(1.1)/*< à compléter 2 >*/);
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
