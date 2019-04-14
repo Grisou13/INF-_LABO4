@@ -97,13 +97,19 @@ int main() {
             //< à compléter 1 >
             class AugmentationPrix{
             public:
+               AugmentationPrix(double majoration) : majoration(majoration){}
                void operator() (Produit& elem){
-                  elem.setPrix(elem.getPrix() * 1.1);
+                  elem.setPrix(elem.getPrix() * majoration);
                }
+            private:
+               double majoration;
             };
+            
+            AugmentationPrix nouveauPrix(1.1);
+            
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir(AugmentationPrix()/*< à compléter 2 >*/);
+            c.parcourir(nouveauPrix/*< à compléter 2 >*/);
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
