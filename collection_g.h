@@ -44,7 +44,7 @@ std::ostream& operator<< (std::ostream& out, const Collection<T, CONTENEUR>& c){
 
 /**
  * 
- * Utilisable seulement par des conteneur implémentant:
+ * Utilisable seulement par des conteneurs implémentant:
  * - les fonctions:
  *   - push_back
  *   - clear
